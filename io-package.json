@@ -42,7 +42,7 @@
             "zh-cn": "适配器开发的模板"
         },
         "authors": [
-            "Yuhang Jiang <yjiang@student.tgm.ac.at>"
+            "Author <author@mail.com>"
         ],
         "keywords": [
             "ioBroker",
@@ -55,10 +55,10 @@
         "main": "main.js",
         "icon": "template.png",
         "enabled": true,
-        "extIcon": "https://raw.githubusercontent.com/yjiang-tgm/ioBroker.smartStinkiSoilMoisture/2505cc467051d5318181c88eb4e5c33d7e307cec/admin/template.png",
-        "readme": "https://github.com/yjiang-tgm/ioBroker.smartStinkiSoilMoisture/blob/master/README.md",
+        "extIcon": "https://raw.githubusercontent.com/Author/ioBroker.template/master/admin/template.png",
+        "readme": "https://github.com/Author/ioBroker.template/blob/master/README.md",
         "loglevel": "info",
-        "mode": "schedule",
+        "mode": "daemon",
         "type": "general",
         "compact": true,
         "materialize": true,
@@ -66,8 +66,16 @@
         "adminTab": {
             "singleton": true,
             "name": {
-                "en": "Smart Stinki Soil Moisture Sensor",
-                "de": "Smart Stinki Bodenfeuchtigkeitssensor"
+                "en": "Template (JavaScript)",
+                "de": "Vorlage (JavaScript)",
+                "ru": "Шаблон (JavaScript)",
+                "pt": "Modelo (JavaScript)",
+                "nl": "Sjabloon (JavaScript)",
+                "fr": "Modèle (JavaScript)",
+                "it": "Modello (JavaScript)",
+                "es": "Plantilla (JavaScript)",
+                "pl": "Szablon (JavaScript)",
+                "zh-cn": "范本（JavaScript）"
             },
             "link": "",
             "fa-icon": "info"
@@ -80,7 +88,8 @@
         ]
     },
     "native": {
-        "Sensor Web Server": "localhost"
+        "option1": true,
+        "option2": "42"
     },
     "objects": [],
     "instanceObjects": []
