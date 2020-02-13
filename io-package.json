@@ -43,6 +43,7 @@
         "readme": "https://github.com/yjiang-tgm/ioBroker.smartstinkisoilmoisture/blob/master/README.md",
         "loglevel": "info",
         "mode": "schedule",
+        "schedule": "* * * * *",
         "type": "general",
         "compact": true,
         "materialize": true,
