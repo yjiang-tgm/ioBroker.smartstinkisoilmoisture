@@ -11,7 +11,7 @@ const utils = require('@iobroker/adapter-core');
 // Load your modules here, e.g.:
 // const fs = require("fs");
 
-class Template extends utils.Adapter {
+class SoilMoisture extends utils.Adapter {
 
     /**
      * @param {Partial<ioBroker.AdapterOptions>} [options={}]
@@ -149,8 +149,8 @@ if (module.parent) {
     /**
      * @param {Partial<ioBroker.AdapterOptions>} [options={}]
      */
-    module.exports = (options) => new Template(options);
+    module.exports = (options) => new SoilMoisture(options);
 } else {
     // otherwise start the instance directly
-    new Template();
+    new SoilMoisture();
 }

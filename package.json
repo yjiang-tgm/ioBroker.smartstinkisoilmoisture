@@ -1,12 +1,12 @@
 {
   "name": "iobroker.smartstinkisoilmoisture",
   "version": "0.0.1",
-  "description": "Template for adapter development",
+  "description": "Smart Stinki Soil Moisture",
   "author": {
-    "name": "Author",
-    "email": "author@mail.com"
+    "name": "Yuhang Jiang",
+    "email": "yjiang@student.tgm.ac.at"
   },
-  "homepage": "https://github.com/Author/ioBroker.template",
+  "homepage": "https://github.com/yjiang-tgm/ioBroker.smartstinkisoilmoisture",
   "license": "MIT",
   "keywords": [
     "ioBroker",
@@ -16,7 +16,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/Author/ioBroker.template"
+    "url": "https://github.com/yjiang-tgm/ioBroker.smartstinkisoilmoisture"
   },
   "dependencies": {
     "@iobroker/adapter-core": "^2.2.1"
@@ -51,7 +51,7 @@
     "lint": "eslint"
   },
   "bugs": {
-    "url": "https://github.com/Author/ioBroker.template/issues"
+    "url": "https://github.com/yjiang-tgm/ioBroker.smartstinkisoilmoisture/issues"
   },
   "readmeFilename": "README.md"
 }
