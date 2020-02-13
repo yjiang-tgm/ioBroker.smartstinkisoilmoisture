@@ -69,6 +69,7 @@ class SoilMoisture extends utils.Adapter {
         // ack should be always set to true if the value is received from or acknowledged from the target system
         await this.setStateAsync('testVariable', { val: true, ack: true });
 
+        /*
         // same thing, but the state is deleted after 30s (getState will return null afterwards)
         await this.setStateAsync('testVariable', { val: true, ack: true, expire: 30 });
 
@@ -78,6 +79,7 @@ class SoilMoisture extends utils.Adapter {
 
         result = await this.checkGroupAsync('admin', 'admin');
         this.log.info('check group user admin group admin: ' + result);
+        */
     }
 
     /**
@@ -87,6 +89,7 @@ class SoilMoisture extends utils.Adapter {
     onUnload(callback) {
         try {
             this.removeAllListeners();
+            this.unsubscribeStates('*');
             this.log.info('cleaned everything up...');
             callback();
         } catch (e) {
