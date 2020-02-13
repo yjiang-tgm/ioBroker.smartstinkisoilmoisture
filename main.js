@@ -88,8 +88,9 @@ class SoilMoisture extends utils.Adapter {
      */
     onUnload(callback) {
         try {
-            this.removeAllListeners();
             this.unsubscribeStates('*');
+            this.unsubscribeObjects('*');
+            this.removeAllListeners();
             this.log.info('cleaned everything up...');
             callback();
         } catch (e) {
