@@ -10,9 +10,9 @@
   "license": "MIT",
   "keywords": [
     "ioBroker",
-    "template",
-    "Smart Home",
-    "home automation"
+    "soil",
+    "moisture",
+    "sensor"
   ],
   "repository": {
     "type": "git",
