@@ -36,7 +36,7 @@ class SoilMoisture extends utils.Adapter {
 
         // The adapters config (in the instance object everything under the attribute "native") is accessible via
         // this.config:
-        this.log.info('config option1: ' + this.config.option1);
+        this.log.info('Server-URL: ' + this.config.server-url);
 
         /*
         For every state in the system there has to be also an object of type state

@@ -42,7 +42,7 @@
         "extIcon": "https://raw.githubusercontent.com/yjiang-tgm/ioBroker.smartstinkisoilmoisture/master/admin/template.png",
         "readme": "https://github.com/yjiang-tgm/ioBroker.smartstinkisoilmoisture/blob/master/README.md",
         "loglevel": "info",
-        "mode": "daemon",
+        "mode": "schedule",
         "type": "general",
         "compact": true,
         "materialize": true,
@@ -64,7 +64,7 @@
         ]
     },
     "native": {
-        "option1": "localhost"
+        "server-url": "localhost"
     },
     "objects": [],
     "instanceObjects": []
