@@ -36,7 +36,7 @@ class SoilMoisture extends utils.Adapter {
 
         // The adapters config (in the instance object everything under the attribute "native") is accessible via
         // this.config:
-        this.log.info('Server-URL: ' + this.config.server-url);
+        this.log.info('Server-URL: ' + this.config.serverurl);
 
         /*
         For every state in the system there has to be also an object of type state
@@ -86,6 +86,7 @@ class SoilMoisture extends utils.Adapter {
      */
     onUnload(callback) {
         try {
+            this.removeAllListeners();
             this.log.info('cleaned everything up...');
             callback();
         } catch (e) {

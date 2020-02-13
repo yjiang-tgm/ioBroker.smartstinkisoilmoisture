@@ -65,7 +65,7 @@
         ]
     },
     "native": {
-        "server-url": "localhost"
+        "serverurl": "localhost"
     },
     "objects": [],
     "instanceObjects": []
