@@ -45,7 +45,7 @@ class SoilMoisture extends utils.Adapter {
             },
             native: {},
         });
-        this.interval = setInterval(this.readValues, 5000);
+        this.interval = setInterval(this.readValues.bind(this), 5000);
     }
 
     /**
