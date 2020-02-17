@@ -30,6 +30,7 @@ class SoilMoisture extends utils.Adapter {
      * Is called when databases are connected and adapter received configuration.
      */
     onReady() {
+        this.log.info('Adapter ready');
         this.setObject('soilMoisture', {
             type: 'state',
             common: {
@@ -46,7 +47,6 @@ class SoilMoisture extends utils.Adapter {
 
     /**
      * Reads the values from the soil moisture sensor and puts the value in the object
-     * @returns {Promise<void>}
      */
     async readValues() {
         const url = this.config.serverurl;
@@ -66,15 +66,17 @@ class SoilMoisture extends utils.Adapter {
      */
     onUnload(callback) {
         try {
-            if(this.interval) clearTimeout(this.interval);
+            if(this.interval) clearInterval(this.interval);
             this.delObject('soilMoisture');
             this.unsubscribeStates('*');
             this.unsubscribeObjects('*');
             this.removeAllListeners();
             this.log.info('cleaned everything up...');
+            this.terminate ? this.terminate() : process.exit();
             callback();
         } catch (e) {
             this.log.error(e);
+            process.exit(1);
             callback();
         }
     }
