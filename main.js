@@ -24,6 +24,9 @@ class SoilMoisture extends utils.Adapter {
         });
         this.on('ready', this.onReady.bind(this));
         this.on('unload', this.onUnload.bind(this));
+        process.on('SIGINT', () => {
+            this.terminate ? this.terminate() : process.exit();
+        });
     }
 
     /**
@@ -67,16 +70,10 @@ class SoilMoisture extends utils.Adapter {
     onUnload(callback) {
         try {
             if(this.interval) clearInterval(this.interval);
-            this.delObject('soilMoisture');
-            this.unsubscribeStates('*');
-            this.unsubscribeObjects('*');
-            this.removeAllListeners();
             this.log.info('cleaned everything up...');
-            this.terminate ? this.terminate() : process.exit();
             callback();
         } catch (e) {
             this.log.error(e);
-            process.exit(1);
             callback();
         }
     }
