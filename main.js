@@ -1,5 +1,4 @@
 'use strict';
-
 /*
  * Created with @iobroker/create-adapter v1.21.1
  */
@@ -7,6 +6,7 @@
 // The adapter-core module gives you access to the core ioBroker functions
 // you need to create an adapter
 const utils = require('@iobroker/adapter-core');
+const axios = require('axios').default;
 
 // Load your modules here, e.g.:
 // const fs = require("fs");
@@ -36,38 +36,44 @@ class SoilMoisture extends utils.Adapter {
 
         // The adapters config (in the instance object everything under the attribute "native") is accessible via
         // this.config:
-        this.log.info('Server-URL: ' + this.config.serverurl);
+        const url = this.config.serverurl;
+        this.log.info('Server-URL: ' + url);
 
         /*
         For every state in the system there has to be also an object of type state
         Here a simple template for a boolean variable named "testVariable"
         Because every adapter instance uses its own unique namespace variable names can't collide with other adapters variables
         */
-        await this.setObjectAsync('testVariable', {
+        await this.setObjectAsync('soilMoisture', {
             type: 'state',
             common: {
-                name: 'testVariable',
-                type: 'boolean',
-                role: 'indicator',
+                name: 'soilMoisture',
+                type: 'number',
+                role: 'value',
                 read: true,
-                write: true,
+                write: false,
             },
             native: {},
         });
 
         // in this template all states changes inside the adapters namespace are subscribed
-        this.subscribeStates('*');
+        // this.subscribeStates('*');
 
         /*
         setState examples
         you will notice that each setState will cause the stateChange event to fire (because of above subscribeStates cmd)
         */
         // the variable testVariable is set to true as command (ack=false)
-        await this.setStateAsync('testVariable', true);
+        // await this.setStateAsync('testVariable', true);
 
         // same thing, but the value is flagged "ack"
         // ack should be always set to true if the value is received from or acknowledged from the target system
-        await this.setStateAsync('testVariable', { val: true, ack: true });
+        try {
+            const response = await axios.get(url);
+            this.setState('soilMoisture', {val: response, ack: true});
+        } catch (error) {
+            this.log.error(error);
+        }
 
         /*
         // same thing, but the state is deleted after 30s (getState will return null afterwards)
@@ -80,6 +86,7 @@ class SoilMoisture extends utils.Adapter {
         result = await this.checkGroupAsync('admin', 'admin');
         this.log.info('check group user admin group admin: ' + result);
         */
+        this.delObject('soilMoisture');
         this.unsubscribeStates('*');
         this.unsubscribeObjects('*');
         this.removeAllListeners();
