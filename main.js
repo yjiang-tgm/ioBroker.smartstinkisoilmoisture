@@ -45,22 +45,19 @@ class SoilMoisture extends utils.Adapter {
             },
             native: {},
         });
-        this.interval = setInterval(this.readValues, 1000);
+        this.interval = setInterval(this.readValues, 5000);
     }
 
     /**
      * Reads the values from the soil moisture sensor and puts the value in the object
      */
-    async readValues() {
+    readValues() {
         const url = this.config.serverurl;
         this.log.info('Making a HTTP request to ' + url);
 
-        try {
-            const response = await axios.get(url);
-            this.setState('soilMoisture', {val: response, ack: true});
-        } catch (error) {
-            this.log.error(error);
-        }
+        axios.get(url)
+            .then(response => this.setState('soilMoisture', {val: response, ack: true}))
+            .catch(reason => this.log.error(reason));
     }
 
     /**
