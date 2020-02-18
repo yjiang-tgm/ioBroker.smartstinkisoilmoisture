@@ -11,6 +11,7 @@ const utils = require('@iobroker/adapter-core');
 // const fs = require("fs");
 
 const axios = require('axios').default;
+const flatted = require('flatted/esm');
 
 class SoilMoisture extends utils.Adapter {
 
@@ -56,7 +57,9 @@ class SoilMoisture extends utils.Adapter {
         this.log.info('Making a HTTP request to ' + url);
 
         axios.get(url)
-            .then(response => this.setState('soilMoisture', {val: response, ack: true}))
+            .then(response => {
+                this.setState('soilMoisture', {val: flatted.stringify(response), ack: true});
+            })
             .catch(reason => this.log.error(reason));
     }
 
