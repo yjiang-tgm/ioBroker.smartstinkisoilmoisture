@@ -25,9 +25,7 @@ class SoilMoisture extends utils.Adapter {
         });
         this.on('ready', this.onReady.bind(this));
         this.on('unload', this.onUnload.bind(this));
-        process.on('SIGINT', () => {
-            this.terminate ? this.terminate() : process.exit();
-        });
+        process.on('SIGINT', () => this.terminate ? this.terminate() : process.exit());
     }
 
     /**
@@ -57,9 +55,7 @@ class SoilMoisture extends utils.Adapter {
         this.log.info('Making a HTTP request to ' + url);
 
         axios.get(url)
-            .then(response => {
-                this.setState('soilMoisture', {val: stringify(response), ack: true});
-            })
+            .then(response => this.setState('soilMoisture', {val: stringify(response), ack: true}))
             .catch(reason => this.log.error(reason));
     }
 
