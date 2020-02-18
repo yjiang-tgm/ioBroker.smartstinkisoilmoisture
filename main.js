@@ -56,7 +56,11 @@ class SoilMoisture extends utils.Adapter {
         this.log.info('Making a HTTP request to ' + url);
 
         axios.get(url)
-            .then(response => this.setState('soilMoisture', {val: response, ack: true}))
+            .then(response => {
+                const jsonText = JSON.stringify(response);
+                const objResponse = JSON.parse(jsonText);
+                this.setState('soilMoisture', {val: objResponse, ack: true});
+            })
             .catch(reason => this.log.error(reason));
     }
 
