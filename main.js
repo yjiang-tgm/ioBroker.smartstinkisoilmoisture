@@ -44,7 +44,8 @@ class SoilMoisture extends utils.Adapter {
             },
             native: {},
         });
-        this.interval = setInterval(this.readValues.bind(this), 5000);
+        this.readValues();
+        this.interval = setInterval(this.readValues.bind(this), 600000);
     }
 
     /**
@@ -66,7 +67,7 @@ class SoilMoisture extends utils.Adapter {
     onUnload(callback) {
         try {
             if(this.interval) clearInterval(this.interval);
-            this.log.info('cleaned everything up...');
+            this.log.info('Cleaned everything up...');
             callback();
         } catch (e) {
             this.log.error(e);
