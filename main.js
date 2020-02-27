@@ -62,11 +62,20 @@ class SoilMoisture extends utils.Adapter {
 
         axios.get(url)
             .then(response => {
-                // flip the percentage, since 100% is dry and 0% is wet
-                const percentage = 100 - (stringify(response) * conversion);
-                this.setState('soilMoisture', {val: percentage, ack: true});
+                if(!isNaN(stringify(response))) {
+                    // flip the percentage, since 100% is dry and 0% is wet
+                    const percentage = 100 - (stringify(response) * conversion);
+                    this.setState('soilMoisture', {val: percentage, ack: true});
+                    this.setState('info.connection', {val: true, ack: true});
+                } else {
+                    this.setState('info.connection', {val: false, ack: true});
+                    this.log.error('Did not receive a number. Wrong URL?');
+                }
             })
-            .catch(reason => this.log.error(reason));
+            .catch(reason => {
+                this.setState('info.connection', {val: false, ack: true});
+                this.log.error(reason);
+            });
     }
 
     /**

@@ -80,11 +80,24 @@
             "_id": "soilMoisture",
             "type": "state",
             "common": {
-                "name": "soilMoisture",
+                "name": "Bodenfeuchtigkeit",
                 "type": "number",
-                "role": "value",
+                "role": "level",
                 "read": true,
                 "write": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "info.connection",
+            "type": "state",
+            "common": {
+                "role": "indicator.connected",
+                "name": "Verbunden zum HTTP Server vom Sensor",
+                "type": "boolean",
+                "read": true,
+                "write": false,
+                "def": false
             },
             "native": {}
         }
