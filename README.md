@@ -3,9 +3,6 @@
 Dieser Adapter liest JSON aus einem Arduino-Webserver aus.
 In unserem Projekt ist der Arduino an einem Feuchtigkeitssensor
 angeschlossen, der die Bodenfeuchtigkeit im Garten ausliest.
-## Changelog
-* 1.0.0 Grundlegende Funktionalität implementiert
-* 0.0.1 Erstveröffentlichung
 ## Arduino Code
 Der Ardunino verwendet eine C-artige Programmiersprache. Bei diesem
 Programm wird die ``loop()`` Methode wiederholt aufgerufen. Hier wird
@@ -59,6 +56,9 @@ Der Adapter ruft alle 10 Minuten (empfohlender Wert vom
 Sensorhersteller AZ-Delivery) die HTTP-Schnittstelle des Arduinos
 auf. Der Wert wird in das ioBroker-Objekt __soilMoisture__ gespeichert.
 Dafür muss in der Konfiguration der Webserver festgelegt sein.
+## Changelog
+* 1.0.0 Grundlegende Funktionalität implementiert
+* 0.0.1 Erstveröffentlichung
 ## License
 MIT License
 
