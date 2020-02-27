@@ -33,7 +33,7 @@ class SoilMoisture extends utils.Adapter {
      */
     onReady() {
         this.log.info('Adapter ready');
-        this.setObject('soilMoisture', {
+        /*this.setObject('soilMoisture', {
             type: 'state',
             common: {
                 name: 'soilMoisture',
@@ -43,20 +43,29 @@ class SoilMoisture extends utils.Adapter {
                 write: false,
             },
             native: {},
-        });
+        });*/
         this.readValues();
         this.interval = setInterval(this.readValues.bind(this), 600000);
     }
 
     /**
-     * Reads the values from the soil moisture sensor and puts the value in the object
+     * Reads the values from the soil moisture sensor and puts the value in the object as a percentage
+     * the percentage is calculated from the sensor value (0-1023) and inverted (since 0 is reported as wet
+     * and 1023 is reported as dry)
      */
     readValues() {
         const url = this.config.serverurl;
         this.log.info('Making a HTTP request to ' + url);
 
+        // Conversion rate 1023 -> 100%
+        const conversion = 100 / 1023;
+
         axios.get(url)
-            .then(response => this.setState('soilMoisture', {val: stringify(response), ack: true}))
+            .then(response => {
+                // flip the percentage, since 100% is dry and 0% is wet
+                const percentage = 100 - (stringify(response) * conversion);
+                this.setState('soilMoisture', {val: percentage, ack: true});
+            })
             .catch(reason => this.log.error(reason));
     }
 

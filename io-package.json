@@ -75,5 +75,18 @@
         "serverurl": "localhost"
     },
     "objects": [],
-    "instanceObjects": []
+    "instanceObjects": [
+        {
+            "_id": "soilMoisture",
+            "type": "state",
+            "common": {
+                "name": "soilMoisture",
+                "type": "number",
+                "role": "value",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        }
+    ]
 }
