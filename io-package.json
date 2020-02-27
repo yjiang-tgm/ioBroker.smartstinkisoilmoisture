@@ -33,10 +33,14 @@
             "Yuhang Jiang <yjiang@student.tgm.ac.at>"
         ],
         "keywords": [
-            "ioBroker",
-            "template",
-            "Smart Home",
-            "home automation"
+            "soil",
+            "boden",
+            "moisture",
+            "feuchtigkeit",
+            "sensor",
+            "arduino",
+            "bewässerung",
+            "garten"
         ],
         "license": "MIT",
         "platform": "Javascript/Node.js",
