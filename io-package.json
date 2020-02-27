@@ -47,7 +47,7 @@
         "readme": "https://github.com/yjiang-tgm/ioBroker.smartstinkisoilmoisture/blob/master/README.md",
         "loglevel": "info",
         "mode": "daemon",
-        "type": "general",
+        "type": "garden",
         "compact": true,
         "materialize": true,
         "materializeTab": true,
