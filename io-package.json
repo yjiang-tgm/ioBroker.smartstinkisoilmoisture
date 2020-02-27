@@ -1,7 +1,7 @@
 {
     "common": {
         "name": "smartstinkisoilmoisture",
-        "version": "0.0.1",
+        "version": "1.0.0",
         "news": {
             "0.0.1": {
                 "en": "initial release",
@@ -14,6 +14,10 @@
                 "es": "Versión inicial",
                 "pl": "Pierwsze wydanie",
                 "zh-cn": "首次出版"
+            },
+            "1.0.0": {
+                "en": "Basic Functionality",
+                "de": "Grundlegende Funktionalität"
             }
         },
         "title": "Smart Stinki Soil Moisture",

@@ -3,6 +3,9 @@
 Dieser Adapter liest JSON aus einem Arduino-Webserver aus.
 In unserem Projekt ist der Arduino an einem Feuchtigkeitssensor
 angeschlossen, der die Bodenfeuchtigkeit im Garten ausliest.
+## Changelog
+* 1.0.0 Grundlegende Funktionalität implementiert
+* 0.0.1 Erstveröffentlichung
 ## Arduino Code
 Der Ardunino verwendet eine C-artige Programmiersprache. Bei diesem
 Programm wird die ``loop()`` Methode wiederholt aufgerufen. Hier wird
@@ -51,8 +54,30 @@ void loop() {
   }
 }
 ````
-### Adapter Funktionalität
+## Adapter Funktionalität
 Der Adapter ruft alle 10 Minuten (empfohlender Wert vom 
 Sensorhersteller AZ-Delivery) die HTTP-Schnittstelle des Arduinos
 auf. Der Wert wird in das ioBroker-Objekt __soilMoisture__ gespeichert.
 Dafür muss in der Konfiguration der Webserver festgelegt sein.
+## License
+MIT License
+
+Copyright (c) 2020 Yuhang Jiang <yjiang@student.tgm.ac.at>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

@@ -1,6 +1,6 @@
 {
   "name": "iobroker.smartstinkisoilmoisture",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Smart Stinki Soil Moisture",
   "author": "Yuhang Jiang <yjiang@student.tgm.ac.at>",
   "homepage": "https://github.com/yjiang-tgm/ioBroker.smartstinkisoilmoisture",
