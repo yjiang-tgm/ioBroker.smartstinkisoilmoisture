@@ -62,14 +62,15 @@ class SoilMoisture extends utils.Adapter {
 
         axios.get(url)
             .then(response => {
-                if(!isNaN(stringify(response))) {
+                const responseString = stringify(response);
+                if(responseString <= 1023 && responseString >= 0) {
                     // flip the percentage, since 100% is dry and 0% is wet
                     const percentage = 100 - (stringify(response) * conversion);
                     this.setState('soilMoisture', {val: percentage, ack: true});
                     this.setState('info.connection', {val: true, ack: true});
                 } else {
                     this.setState('info.connection', {val: false, ack: true});
-                    this.log.error('Did not receive a number. Wrong URL?');
+                    this.log.error('Did not receive a number between 0 and 1023 (Sensor values). Wrong Server-URL?');
                 }
             })
             .catch(reason => {
