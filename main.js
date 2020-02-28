@@ -11,7 +11,6 @@ const utils = require('@iobroker/adapter-core');
 // const fs = require("fs");
 
 const axios = require('axios').default;
-const {stringify} = require('flatted/cjs');
 
 class SoilMoisture extends utils.Adapter {
 
@@ -62,11 +61,11 @@ class SoilMoisture extends utils.Adapter {
 
         axios.get(url)
             .then(response => {
-                const responseString = stringify(response);
-                this.log.info('Received: ' + responseString);
-                if(responseString <= 1023 && responseString >= 0 && responseString !== '') {
+                const responseData = response.data;
+                this.log.info('Received: ' + responseData);
+                if(responseData <= 1023 && responseData >= 0) {
                     // flip the percentage, since 100% is dry and 0% is wet
-                    const percentage = 100 - (responseString * conversion);
+                    const percentage = 100 - (responseData * conversion);
                     this.setState('soilMoisture', {val: percentage, ack: true});
                     this.setState('info.connection', {val: true, ack: true});
                 } else {
