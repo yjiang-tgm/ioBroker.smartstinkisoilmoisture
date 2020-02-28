@@ -63,7 +63,8 @@ class SoilMoisture extends utils.Adapter {
         axios.get(url)
             .then(response => {
                 const responseString = stringify(response);
-                if(responseString <= 1023 && responseString >= 0) {
+                this.log.info('Received: ' + responseString);
+                if(responseString <= 1023 && responseString >= 0 && responseString !== '') {
                     // flip the percentage, since 100% is dry and 0% is wet
                     const percentage = 100 - (stringify(response) * conversion);
                     this.setState('soilMoisture', {val: percentage, ack: true});
