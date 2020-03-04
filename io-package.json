@@ -82,7 +82,7 @@
             "common": {
                 "name": "Bodenfeuchtigkeit",
                 "type": "number",
-                "role": "guage.temperature",
+                "role": "value.humidity",
                 "read": true,
                 "write": false
             },
