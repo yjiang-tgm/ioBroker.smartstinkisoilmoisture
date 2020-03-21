@@ -28,7 +28,6 @@ void loop() {
           // send a standard http response header
           client.println("HTTP/1.1 200 OK");
           client.println("Content-Type: text/plain; charset=utf-8");
-          client.println("Connection: close");  // the connection will be closed after completion of the response
           client.println();
           client.println(analogRead(A1));
           break;
