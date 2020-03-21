@@ -64,7 +64,6 @@
             "link": "",
             "fa-icon": "info"
         },
-        "supportCustoms": true,
         "dependencies": [
             {
                 "js-controller": ">=1.4.2"
